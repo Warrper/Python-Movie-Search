@@ -67,3 +67,23 @@ ium/src/chrome/common[Child 1/2508ipc_channel_win.cc, line 346
 [GPU 6588, Chrome_ChildTh
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1544511438481	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Warren\\AppData\\Local\\Temp\\rust_mozprofile.KAXdF8PYLK1X"
+1544511441818	Marionette	INFO	Listening on port 51164
+1544511442316	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 11284, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12808, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ip[Parent 1320, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1544511481340	Marionette	INFO	Listening on port 51249
+[Child 13192, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1319215445111544511483575	Marionette	INFO	Stopped listening on port 51164
+
+###!!! [Child][[Child 6456, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6456, Chrome_ChildThread] WARNING: p[Parent 1320, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3152, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3152, Chrome_ChildThread] [Parent 1320, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1544511889713	Marionette	INFO	Stopped listening on port 51249
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 2392, Chrome_ChildThread] 
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

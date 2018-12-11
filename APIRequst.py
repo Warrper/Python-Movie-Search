@@ -24,6 +24,6 @@ def Movie_Search():
     print("Country: " + rDict["Country"])
     print("Awards: " + rDict["Awards"])
   except:
-    print("Please enter a valid move title\n")
+    print("Please enter a valid movie title\n")
     Movie_Search()
 Movie_Search()
