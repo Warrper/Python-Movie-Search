@@ -1,4 +1,5 @@
 from Film import Film
+from LocalStorage import LocalStorage
 import requests
 import json
 
@@ -17,4 +18,10 @@ def Main():
   except:
     print("Enter a valid movie title\n")
     Main()
+  
+  store = LocalStorage()
+  store.films.append(filmObj)
+  store.WriteFilms()
+
+
 Main()
