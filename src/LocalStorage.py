@@ -8,7 +8,7 @@ class LocalStorage:
   
   def WriteFilms(self):
     #create file if not exist
-    f = open("films.txt", "w")
+    f = open("films.json", "w")
     #append to file
     f = open("films.json", "a")
     temp = list()
