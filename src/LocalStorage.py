@@ -10,7 +10,7 @@ class LocalStorage:
     #create file if not exist
     f = open("films.txt", "w")
     #append to file
-    f = open("films.txt", "a")
+    f = open("films.json", "a")
     temp = list()
     for i in range(len(self.films)):
       temp.append ({
