@@ -26,3 +26,20 @@ class Film:
     print("Language: " + self.language)
     print("Country: " + self.country)
     print("Awards: " + self.awards)
+
+  def Film_To_Dict(self):
+    out = {
+        "Title": self.title,
+        "Year": self.year,
+        "Rated": self.rating,
+        "Released": self.releaseDate,
+        "Runtime": self.runtime,
+        "Genre": self.genre,
+        "Director": self.director,
+        "Actors": self.actors,
+        "Plot": self.plot,
+        "Language": self.language,
+        "Country": self.country,
+        "Awards": self.awards
+      }
+    return out

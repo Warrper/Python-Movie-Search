@@ -20,7 +20,9 @@ def Main():
     Main()
   
   store = LocalStorage()
-  store.films.append(filmObj)
+  store.ReadFilms()
+  if (filmObj.Film_To_Dict() not in store.films):
+    store.films.append(filmObj.Film_To_Dict())
   store.WriteFilms()
 
 Main()

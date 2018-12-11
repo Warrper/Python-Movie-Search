@@ -3,28 +3,20 @@ class LocalStorage:
   def __init__(self):
     self.films = []
   
-  def ReadFilms(self, directory):
-    print("Does Nothing")
+  def ReadFilms(self):
+    try:
+      f = open("films.json", "r")
+      try:
+        x = json.loads(f.read())
+        self.films = x
+      except:
+        pass
+    except:
+      print("File does not exist.")
   
   def WriteFilms(self):
     #create file if not exist
     f = open("films.json", "w")
     #append to file
     f = open("films.json", "a")
-    temp = list()
-    for i in range(len(self.films)):
-      temp.append ({
-        "Title": self.films[i].title,
-        "Year": self.films[i].year,
-        "Rated": self.films[i].rating,
-        "Released": self.films[i].releaseDate,
-        "Runtime": self.films[i].runtime,
-        "Genre": self.films[i].genre,
-        "Director": self.films[i].director,
-        "Actors": self.films[i].actors,
-        "Plot": self.films[i].plot,
-        "Language": self.films[i].language,
-        "Country": self.films[i].country,
-        "Awards": self.films[i].awards
-      })
-    f.write(json.dumps(temp, indent=2))
+    f.write(json.dumps(self.films, indent=2))
