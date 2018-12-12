@@ -53,24 +53,60 @@ class UserInterface:
       self.storage.films.append(filmObj.Film_To_Dict())
     self.storage.Write_Films()
 
+  def Remove_Item(self):
+    validInput = False
+    while validInput == False:
+      userInput = input("\nUse number to select the item you would like to remove from storage\nUse 'c' to cancel\n> ")
+      if userInput.lower() == "c":
+        break
+      try:
+        self.storage.films.pop(int(userInput))
+        self.storage.Write_Films()
+        validInput = True
+        print("Item Removed")
+      except:
+        print("Item does not exist")
+        validInput = False
   
+  def Order_Items(self):
+    validInput = False
+    while validInput == False:
+      userInput = input("\nUse number to select the item you would like to move\nUse 'c' to cancel\n> ")
+      if userInput.lower() == "c":
+        break
+      else:
+        try:
+          item = self.storage.films.pop(int(userInput))
+          validLocation = False
+          while validLocation == False:
+            moveLoc = input("Enter index where you want to insert the item\n> ")
+            try:
+              self.storage.films.insert(int(moveLoc), item)
+              self.storage.Write_Films()
+              self.View_Storage()
+              validLocation = True
+            except:
+              print("Please enter a valid index")
+              validLocation = False
+          validInput = True
+        except:
+          print("Item does not exist.")
+
+
+
   def Edit_Storage(self):
-    if self.View_Storage() == 0:
+    if self.View_Storage() == 0: #if storage is not empty
       validInput = False
       while validInput == False:
-        userInput = input("\nUse number to select the item you would like to remove from storage\nUse 'c' to cancel\n> ")
-        if userInput.lower() == "c":
-          break
-        try:
-          self.storage.films.pop(int(userInput))
-          self.storage.Write_Films()
+        userInput = input("\n1: Remove item from storage\n2: Change order of stored items\nc: Cancel\n> ")
+        if userInput == "1":
           validInput = True
-          print("Item Reomved")
-        except:
-          print("Item does not exist")
-          validInput = False
-    else:
-      pass
+          self.Remove_Item()
+        elif userInput == "2":
+          validInput = True
+          self.Order_Items()
+        elif userInput.lower() == "c":
+          validInput = True
   
   def View_Storage(self):
     self.storage.Read_Films()
@@ -79,7 +115,7 @@ class UserInterface:
       for i in range(0, len(self.storage.films)):
         filmObj = Film(self.storage.films[i])
         print(str(i) + ": " + filmObj.title)
-      return 0
+      return 0 
     else:
       print("No films currently in storage")
       return -1
