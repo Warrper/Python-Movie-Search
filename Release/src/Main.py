@@ -6,5 +6,5 @@ import json
 
 def Main():
   UI = UserInterface()
-  UI.Search_Films()
+  UI.Interface_Options()
 Main()
