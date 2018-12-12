@@ -27,12 +27,16 @@ class UserInterface:
       saveFilm = input("\nWould you like to save this film? (y/n)\n> ")
       if saveFilm.lower() == "y":
         validInput = True
-        self.Store_Film()
+        self.Store_Film(filmObj)
       elif saveFilm.lower() == "n":
-        validInput = True      
+        validInput = True
   
-  def Store_Film(self):
-    print("Store_Film() called")
+  def Store_Film(self, filmObj):
+    self.storage.Read_Films()
+    if filmObj.Film_To_Dict() not in self.storage.films:
+      self.storage.films.append(filmObj.Film_To_Dict())
+    self.storage.Write_Films()
+
   
   def Edit_Storage(self):
     pass
