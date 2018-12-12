@@ -55,13 +55,31 @@ class UserInterface:
 
   
   def Edit_Storage(self):
-    print("Edit_Storage() called")
+    if self.View_Storage() == 0:
+      validInput = False
+      while validInput == False:
+        userInput = input("\nUse number to select the item you would like to remove from storage\nUse 'c' to cancel\n> ")
+        if userInput.lower() == "c":
+          break
+        try:
+          self.storage.films.pop(int(userInput))
+          self.storage.Write_Films()
+          validInput = True
+          print("Item Reomved")
+        except:
+          print("Item does not exist")
+          validInput = False
+    else:
+      pass
   
   def View_Storage(self):
     self.storage.Read_Films()
+    print("")
     if len(self.storage.films) > 0:
       for i in range(0, len(self.storage.films)):
         filmObj = Film(self.storage.films[i])
-        print(filmObj.title)
+        print(str(i) + ": " + filmObj.title)
+      return 0
     else:
       print("No films currently in storage")
+      return -1
